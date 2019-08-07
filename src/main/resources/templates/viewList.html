@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List View</title>
+
+    <h1>Welcome to How to Adult with help from YouTube!</h1>
+    This is a list of things that as adults, we should know how to do, but probably no one ever taught you.<br/>
+    You can browse the list, search by category, or add new videos of things YOU think adults need to know!<br/>
+
+    <!--If bookmarks is missing from the model, the rest just silently won't load.-->
+    <!--Since that's confusing, instead of silently skipping the render, explain that something is wrong -->
+    <p th:unless="${titles}">Something went wrong. Unable to load bookmarks</p>
+
+    <br/><br/>
+    <!--todo switch these to bookmarks.size()-->
+    Number of videos currently in the system: <span th:text="${titles.size()}"/>.
+
+    <ul>
+        <li th:each="titles: ${titles}" th:text="${titles.title}">title goes here!</li>
+        <!--<li th:each="titles: ${titles}" th:text="${bookmark.title}"></li>-->
+    </ul>
+
+<form action="/viewList/new" method="post">
+    <input type="text" name="videoTitle"/>
+    <input type="submit" value="Add this video"/>
+    </form>
+
+
+    </h1>
+</head>
+<body>
+</body>
+</html>
