@@ -19,17 +19,17 @@ public class listController {
 
     public listController(){
         titles = new ArrayList<Video>();
-        titles.add(new Video("First One", "www.cool.com"));
-        titles.add(new Video("Second One", null));
+        titles.add(new Video("How to Fold a Fitted Sheet", "www.cool.com"));
+        titles.add(new Video("How to Tie a Tie", "https://www.youtube.com/watch?v=_Z5k9nWcuFc"));
 
     }
 
     @RequestMapping("")
     public String viewList(Model model){
 System.out.println("Loading List");
-
         model.addAttribute("titles", titles);
         model.addAttribute("count", 42);
+        model.addAttribute("web address", "webAddress");
         return "viewList.html";
     }
 

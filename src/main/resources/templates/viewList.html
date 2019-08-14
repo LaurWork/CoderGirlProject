@@ -17,13 +17,15 @@
     Number of videos currently in the system: <span th:text="${titles.size()}"/>.
 
     <ul>
-        <li th:each="titles: ${titles}" th:text="${titles.title}">title goes here!</li>
-        <!--<li th:each="titles: ${titles}" th:text="${bookmark.title}"></li>-->
+        <li th:each="titles: ${titles}" th:text="${titles.title}" ></li>
+        <p> Doo Do Doooooo</p>
+        <li th:each="titles: ${titles}" th:text="${titles.webAddress}"></li>
     </ul>
 
 <form action="/viewList/new" method="post">
     <input type="text" name="videoTitle"/>
-    <input type="submit" value="Add this video"/>
+    <input type="webAddress" name="webAddress"/>
+    <input type="submit" value="Add this Video!"/>
     </form>
 
 
