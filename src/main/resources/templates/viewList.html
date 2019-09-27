@@ -3,34 +3,54 @@
 <head>
     <meta charset="UTF-8"/>
     <title>List View</title>
-
+</head>
+<body>
     <h1>Welcome to How to Adult with help from YouTube!</h1>
     This is a list of things that as adults, we should know how to do, but probably no one ever taught you.<br/>
     You can browse the list, search by category, or add new videos of things YOU think adults need to know!<br/>
 
-    <!--If bookmarks is missing from the model, the rest just silently won't load.-->
-    <!--Since that's confusing, instead of silently skipping the render, explain that something is wrong -->
-    <p th:unless="${titles}">Something went wrong. Unable to load bookmarks</p>
+
+    <p th:unless="${videos}">Something went wrong. Unable to load videos.</p>
 
     <br/><br/>
-    <!--todo switch these to bookmarks.size()-->
-    Number of videos currently in the system: <span th:text="${titles.size()}"/>.
+    Number of videos currently in the system: <span th:text="${videos.size()}"/>.
+
+    <div class="row">
+        <div class="column"><ul><li th:each="videos: ${videos}" th:text="${videos.video}" ></li></ul></div>
+
+        <div class="column"><ul><li th:each="videos: ${videos}" th:text="${videos.webAddress}"></li></ul></div>
+    </div>
+
 
     <ul>
-        <li th:each="titles: ${titles}" th:text="${titles.title}" ></li>
-        <p> Doo Do Doooooo</p>
-        <li th:each="titles: ${titles}" th:text="${titles.webAddress}"></li>
+        <!--<li th:each="titles: ${titles}" th:text="${titles.title}" ></li>-->
+        <p> Second Loop!</p>
+        <!--<li th:each="titles: ${titles}" th:text="${titles.webAddress}"></li>-->
+        <p>Third Loop!</p>
+        <li th:each="videos: ${videos}" th:text="${videos.Area}"></li>
     </ul>
 
+
+
 <form action="/viewList/new" method="post">
-    <input type="text" name="videoTitle"/>
+    Video Title:
+    <input type="text" name="videoName"/>
+    YouTube Link:
     <input type="webAddress" name="webAddress"/>
-    <input type="submit" value="Add this Video!"/>
+    Where will this be helpful?
+    <select name="area">
+        <option value="Bedroom">Bedroom</option>
+        <option value="Bathroom">Bathroom</option>
+        <option value="Kitchen">Kitchen</option>
+        <option value="Garage">Gargae</option>
+        <option value="Work">Work</option>
+        <option value="Other">Other</option>
+    </select>
+    <input type="submit" value="Add my Video!"/>
     </form>
 
 
-    </h1>
-</head>
-<body>
+
+
 </body>
 </html>

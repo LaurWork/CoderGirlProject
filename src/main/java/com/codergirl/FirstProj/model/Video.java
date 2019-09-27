@@ -2,22 +2,41 @@ package com.codergirl.FirstProj.model;
 
 public class Video {
 
-    private String title;
+    private int id;
+    private String name;
     private String webAddress;
+    private String area;
 
-    public Video(String title, String webAddress) {
-        this.title = title;
+    public Video(int id, String name, String webAddress, String area) {
+
+        this.id = id;
+        this.name = name;
         this.webAddress = webAddress;
+        this.area = area;
     }
 
+    @Override
+
+    public String toString(){
+        return "Video{" +
+                "title='" + name + '\'' +
+                "area='" + area + '\'' +
+                ", webAddress='" + webAddress + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    public int getId() { return id;}
 
     public String getWebAddress() {
         return webAddress;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
+
+    public String getArea() { return area; }
 
 
 }
